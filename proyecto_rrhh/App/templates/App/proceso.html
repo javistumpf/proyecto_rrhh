@@ -1,0 +1,68 @@
+{% extends 'App/base.html' %}
+{% load static %}
+{% block main %}
+
+        <!-- Proceso-->
+        <section class="page-section" id="about" style="margin-top: 40px;">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Proceso</h2>
+                    <h3 class="section-subheading text-muted">Te presentamos el paso a paso del proceso de selección en Tech.</h3>
+                </div>
+                <ul class="timeline">
+                    <li>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="{% static 'App/assets/img/about/1.png' %}" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4 class="subheading">Postulación</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">Una vez que completes el formulario <br>
+                                nos llegará tu solicitud.</p></div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="{% static 'App/assets/img/about/2.jpg' %}" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4 class="subheading">Prueba técnica</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">
+                                Revisaremos tu perfil y, si coincide con la búsqueda, te estaremos enviando una prueba técnica para que completes dentro de las 72 hs. de recibida. 
+                                </p></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="{% static 'App/assets/img/about/3.jpg' %}" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4 class="subheading">Entrevistas</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">Participarás de una assesment center (entrevista grupal) y dos entrevistas individuales para que podamos conocer tu perfil, tu experiencia y tus competencias.
+                            </p></div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="{% static 'App/assets/img/about/4.jpg' %}" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4 class="subheading">Contratación y preocupacionales</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">En caso de que seas elegido/a para ingresar, te indicaremos dónde deberás efectuar los estudios médicos preocupacionales y acordaremos fecha de inicio.
+                            </p></div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image">
+                            <h4>
+                                ¡Sé parte
+                                <br />
+                                de nuestro
+                                <br />
+                                equipo!
+                            </h4>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+{% endblock main %}

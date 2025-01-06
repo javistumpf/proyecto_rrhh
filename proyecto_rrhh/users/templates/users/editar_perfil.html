@@ -1,0 +1,24 @@
+{% extends 'App/base.html' %}
+
+{% load static %}
+
+{% block title %} Editar perfil {% endblock title %}
+
+{% block main %}
+    
+    <h1>Editar perfil de {{usuario}}</h1>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+
+        <table>
+            {{ mi_form.as_table }}
+        </table>
+        <input type="submit" value="Actualizar">
+
+    </form>
+
+    <a class="btn btn-primary btn-l text-uppercase" href="{% url 'CambiarContrasenia' %}">Cambiar contraseña</a>
+
+
+{% endblock main %}

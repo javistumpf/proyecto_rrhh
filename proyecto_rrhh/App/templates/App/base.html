@@ -37,6 +37,7 @@
                         
                         {# DROPDOWN PARA LA CUENTA DE USUARIO #}
                         {% if request.user.is_authenticated %}
+                        <img src="{{ request.user.avatar.imagen.url }}" alt=""  height="40px">
                         <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                             {{ request.user.username }}

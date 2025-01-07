@@ -6,9 +6,13 @@
 
 {% block main %}
     
-    <h1>Editar perfil de {{usuario}}</h1>
-
-    <form action="" method="POST">
+<section class="page-section" id="editar_perfil" style="margin-top: 40px;">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Editar perfil</h2>
+            <h3 class="section-subheading text-muted">Modificá los datos que desees y luego presiona actualizar.</h3>
+        </div>
+    <form action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
 
         <table>
@@ -17,6 +21,7 @@
         <input type="submit" value="Actualizar">
 
     </form>
+    <br>
 
     <a class="btn btn-primary btn-l text-uppercase" href="{% url 'CambiarContrasenia' %}">Cambiar contraseña</a>
 

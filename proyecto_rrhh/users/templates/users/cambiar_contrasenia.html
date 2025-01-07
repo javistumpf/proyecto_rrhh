@@ -5,9 +5,14 @@
 {% block title %} Cambiar Contraseña {% endblock title %}
 
 {% block main %}
-    
-    <h1>Cambiar Contraseña</h1>
 
+<section class="page-section" id="cambiar_contrasenia" style="margin-top: 40px;">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Cambiar contraseña</h2>
+            <h3 class="section-subheading text-muted">Ingresá tu contraseña actual y luego la nueva contraseña.</h3>
+        </div>
+    
     <form action="" method="POST">
         {% csrf_token %}
 
@@ -19,3 +24,4 @@
     </form>
 
 {% endblock main %}
+

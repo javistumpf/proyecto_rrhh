@@ -1,0 +1,26 @@
+<!--ver_perfil -->
+{% extends 'App/base.html' %}
+
+{% block title %}Perfil profesional{% endblock title %}
+
+{% block main %}
+<section class="page-section" id="about" style="margin-top: 40px;">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Mi perfil profesional</h2> <hr>
+            <h3 class="section-subheading text-muted">A continuación podrás revisar tus datos y modificarlos presionando el botón "editar perfil". <hr></h3>
+        </div>
+    <div class="container">
+        <p><strong>Nombre:</strong> {{ candidato.nombre }}</p>
+        <p><strong>Apellido:</strong> {{ candidato.apellido }}</p>
+        <p><strong>Email:</strong> {{ candidato.email }}</p>
+        <p><strong>Teléfono:</strong> {{ candidato.telefono }}</p>
+        <p><strong>Fecha de Nacimiento:</strong> {{ candidato.fecha_nacimiento }}</p>
+        <p><strong>Ciudad:</strong> {{ candidato.ciudad }}</p>
+        <p><strong>Provincia:</strong> {{ candidato.provincia }}</p>
+        <p><strong>Categoría:</strong> {{ candidato.categoria }}</p>
+        <p><strong>Seniority:</strong> {{ candidato.seniority }}</p>
+        <p><strong>CV:</strong> <a href="{{ candidato.archivo_cv.url }}">Descargar CV</a></p>
+        <a href="{% url 'editar_perfil' %}" class="btn btn-primary">Editar Perfil</a>
+    </div>
+{% endblock main %}

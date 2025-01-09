@@ -1,24 +1,29 @@
+<!--form_candidato -->
+
 {% extends 'App/base.html' %}
-
-{% load static %}
-
-{% block title %} Crear candidato {% endblock title %}
-
+{% block title %}Registro de Candidato{% endblock title %}
 {% block main %}
-        <!-- Form candidato-->
-        <section class="page-section" id="Form_candidato" style="margin-top: 40px;">
-            <div class="container">
-                <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Alta de candidato</h2>
-                    <h3 class="section-subheading text-muted">Ingresá tus datos y tu CV.</h3>
-                </div>
-<form method="post" enctype="multipart/form-data" style="margin: 0 auto; max-width: 600px; text-align: center;">
-    {% csrf_token %}
-    <table>
-        {{ mi_formulario.as_table }}
-    </table>
-    <button type="submit">Enviar</button>
-</form>
-{% endblock main %}
+    
+<section class="page-section" id="Form_candidato" style="margin-top: 40px;">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Alta de candidato</h2>
+            <h3 class="section-subheading text-muted">Ingresá tus datos.</h3>
+        </div>
+<div class="container">
 
+        {% if messages %}
+            <div class="alert alert-success">
+                {% for message in messages %}
+                    {{ message }}<br>
+                {% endfor %}
+            </div>
+        {% endif %}
 
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ mi_formulario.as_p }}
+            <button type="submit" class="btn btn-primary">Registrar</button>
+        </form>
+    </div>
+{% endblock %}

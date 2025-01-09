@@ -1,28 +1,27 @@
-<!-- form_postulacion.html -->
+<!-- form_postulacion -->
+
 {% extends 'App/base.html' %}
-
-{% load static %}
-
-{% block title %} Postularse a una búsqueda {% endblock title %}
-
 {% block main %}
-        <!-- Form Postulación-->
-        <section class="page-section" id="Form_postulacion" style="margin-top: 40px;">
-            <div class="container">
-                <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Postulación</h2>
-                    <h3 class="section-subheading text-muted">Selecciona la búsqueda y postúlate.</h3>
-                </div>
-                <form method="post" enctype="multipart/form-data" style="margin: 0 auto; max-width: 600px; text-align: center;">
-                    {% csrf_token %}
-                    <table>
-                        <tr>
-                            <td>{{ mi_formulario.id_busqueda.label }}</td>
-                            <td>{{ mi_formulario.id_busqueda }}</td>
-                        </tr>
-                    </table>
-                    <button type="submit">Enviar</button>
-                </form>
+
+<section class="page-section" id="Form_postulacion" style="margin-top: 40px;">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Postulación</h2>
+            <h3 class="section-subheading text-muted">Seleccioná la búsqueda que deseas postularte.</h3>
+        </div>
+    <div class="container">
+        {% if messages %}
+            <div class="alert alert-success">
+                {% for message in messages %}
+                    {{ message }}<br>
+                {% endfor %}
             </div>
-        </section>
-{% endblock main %}
+        {% endif %}
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ mi_formulario.as_p }} 
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </div>
+{% endblock %}

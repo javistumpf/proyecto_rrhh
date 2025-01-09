@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
+## Candidato
 class Candidato(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)  # Permitir nulos temporalmente
     nombre = models.CharField(max_length=100)
@@ -28,6 +29,7 @@ class Candidato(models.Model):
         ])
     archivo_cv = models.FileField(upload_to='cvs/')
 
+## Búsqueda
 class Busqueda(models.Model):
     puesto = models.CharField(max_length=100)
     fecha_inicio = models.DateField()
@@ -52,7 +54,10 @@ class Busqueda(models.Model):
         ('Activa', 'Activa'),
         ('Finalizada', 'Finalizada')
         ])
+    def __str__(self):
+        return f"{self.id} - {self.puesto}"
 
+## Postulación
 class Postulacion(models.Model):
     id_busqueda = models.ForeignKey(Busqueda, on_delete=models.CASCADE, related_name="postulaciones")
     id_candidato = models.ForeignKey(Candidato, on_delete=models.CASCADE, related_name="postulaciones")

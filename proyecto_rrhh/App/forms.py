@@ -1,32 +1,26 @@
 from django import forms
 from App.models import Busqueda
 from App.models import Postulacion
+from App.models import Candidato  # Asegúrate de importar el modelo Candidato
+
 
 
 ## Candidato
-class FormCandidato(forms.Form):
-    nombre = forms.CharField(max_length=100)
-    apellido = forms.CharField(max_length=100)
-    email = forms.EmailField()
-    telefono = forms.CharField(max_length=15)
-    fecha_nacimiento = forms.DateField()
-    ciudad = forms.CharField(max_length=100)
-    provincia = forms.CharField(max_length=100)
-    categoria = forms.ChoiceField(choices=[
-        ('Programación', 'Programación'),
-        ('Data', 'Data'),
-        ('Redes', 'Redes'),
-        ('QA', 'QA'),
-        ('UX/UI', 'UX/UI'),
-    ])
-    seniority = forms.ChoiceField(choices=[
-        ('Junior', 'Junior'),
-        ('Semi Senior', 'Semi Senior'),
-        ('Senior', 'Senior'),
-        ('Manager', 'Manager'),
-    ])
-    archivo_cv = forms.FileField()
-
+class FormCandidato(forms.ModelForm):
+    class Meta:
+        model = Candidato
+        fields = [
+            'nombre',
+            'apellido',
+            'email',
+            'telefono',
+            'fecha_nacimiento',
+            'ciudad',
+            'provincia',
+            'categoria',
+            'seniority',
+            'archivo_cv'
+        ]
 
 ## Búsqueda
 class FormBusqueda(forms.Form):

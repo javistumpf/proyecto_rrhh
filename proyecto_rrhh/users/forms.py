@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 
-
+## Crear usuario
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField()
     password1 = forms.CharField(label='Contraseña', widget=forms.PasswordInput)
@@ -15,7 +15,7 @@ class UserRegisterForm(UserCreationForm):
             # de lo contrario lo limpiamos de ésta forma.
         help_text = {k: "" for k in fields}
 
-
+## Editar usuario
 class UserEditForm(UserChangeForm):
 
     password = None

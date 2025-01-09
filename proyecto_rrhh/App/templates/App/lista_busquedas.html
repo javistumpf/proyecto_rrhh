@@ -1,0 +1,63 @@
+<!-- lista_busquedas -->
+{% extends 'App/base.html' %}
+{% load static %}
+{% block main %}
+<section class="page-section" id="lista_busquedas" style="margin-top: 40px;">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Búsquedas</h2>
+            <hr>
+            <h3 class="section-subheading text-muted">Postulate a la búsqueda que se adapte a tu perfil e intereses.<hr></h3>
+        </div>
+        
+        <form method="get" action="{% url 'lista_busquedas' %}">
+            <div class="form-group">
+                <label for="categoria">Categoría:</label>
+                <select name="categoria" id="categoria" class="form-control-sm">
+                    <option value="">-- Selecciona una categoría --</option>
+                    <option value="Programación">Programación</option>
+                    <option value="Data">Data</option>
+                    <option value="Redes">Redes</option>
+                    <option value="QA">QA</option>
+                    <option value="UX/UI">UX/UI</option>
+                </select>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="seniority">Seniority:</label>
+                <select name="seniority" id="seniority" class="form-control-sm">
+                    <option value="">-- Selecciona un nivel de seniority --</option>
+                    <option value="Junior">Junior</option>
+                    <option value="Semi Senior">Semi Senior</option>
+                    <option value="Senior">Senior</option>
+                    <option value="Manager">Manager</option>
+                </select>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">Filtrar</button> <hr>
+        </form>
+
+        <div class="container text-center">
+            <div class="row">
+                {% for busqueda in busquedas %}
+                    <div class="col-md-4">
+                        <div class="card" style="margin-bottom: 20px;">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ busqueda.puesto }}</h5>
+                                <p class="card-text">{{ busqueda.categoria }} - {{ busqueda.seniority }} </p>
+                                <a href="{% url 'detalle_busqueda' busqueda.id %}" class="btn btn-primary">Ver Detalles</a>
+                                
+                                {% if request.user.is_authenticated %}
+                                    <a href="{% url 'FormPostulacion' %}?id_busqueda={{ busqueda.id }}&puesto={{ busqueda.puesto }}" class="btn btn-success">Postularse</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                {% empty %}
+                    <p>No hay búsquedas activas disponibles.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock main %}

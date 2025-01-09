@@ -1,0 +1,27 @@
+<!--detalle_busqueda -->
+
+{% extends 'App/base.html' %}
+{% load static %}
+{% block main %}
+<section class="page-section" id="detalle_busqueda" style="margin-top: 40px;">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Detalle de búsqueda </h2>
+            <hr>
+
+            <h4 class="section-subheading text-muted">{{ busqueda.puesto }}</h4>
+            <hr>
+        </div>
+        <div class="container text-center"> 
+            <p><strong>Fecha de Inicio:</strong> {{ busqueda.fecha_inicio }}</p>
+            <p><strong>Fecha de Fin:</strong> {{ busqueda.fecha_fin }}</p>
+            <p><strong>Categoría:</strong> {{ busqueda.categoria }}</p>
+            <p><strong>Seniority:</strong> {{ busqueda.seniority }}</p>
+            <p><strong>Tareas:</strong> {{ busqueda.tareas }}</p>
+            <p><strong>Requisitos Excluyentes:</strong> {{ busqueda.requisitos_excluyentes }}</p>
+            <p><strong>Requisitos Deseables:</strong> {{ busqueda.requisitos_deseables }}</p>
+        
+            <div>
+                <a class="btn btn-primary btn-m text-uppercase" href="{% url 'lista_busquedas' %}">VER BÚSQUEDAS</a>
+            </div>
+        </div>{% endblock main %}

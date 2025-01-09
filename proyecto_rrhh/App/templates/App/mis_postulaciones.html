@@ -1,0 +1,39 @@
+<!-- mis_postulaciones -->
+
+{% extends 'App/base.html' %}
+{% block title %}Mis Postulaciones{% endblock title %}
+{% block main %}
+
+<section class="page-section" id="mis_postulaciones" style="margin-top: 40px;">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Mis postulaciones</h2>
+            <hr>
+            <h3 class="section-subheading text-muted">A continuación podrás revisar el estado de tus postulaciones .<hr> </h3>
+                
+        </div>
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Puesto</th>
+                    <th>Fecha de Postulación</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for postulacion in postulaciones %}
+                    <tr>
+                        <td>{{ postulacion.id_busqueda.puesto }}</td>
+                        <td>{{ postulacion.fecha_postulacion }}</td>
+                        <td>{{ postulacion.estado }}</td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="3">No tienes postulaciones.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock main %}
